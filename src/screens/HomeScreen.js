@@ -19,6 +19,7 @@ import {colors} from '../global/styles';
 
 export default function HomeScreen({navigation}) {
   const [searchModal, setSearchModal] = useState(false);
+  const [currentLocation, setCurrentLocation] = useState('Port-Harcourt');
 
   return (
     <View style={styles.container}>
@@ -40,7 +41,10 @@ export default function HomeScreen({navigation}) {
       <ScrollView showsVerticalScrollIndicator={false}>
         <View
           style={{paddingTop: 10, paddingBottom: 15, paddingHorizontal: 10}}>
-          <Location />
+          <Location
+            currentLocation={currentLocation}
+            setCurrentLocation={setCurrentLocation}
+          />
         </View>
 
         <View
@@ -66,7 +70,7 @@ export default function HomeScreen({navigation}) {
             // paddingTop: 15,
             paddingHorizontal: 10,
           }}>
-          <Stores />
+          <Stores currentLocation={currentLocation} />
         </View>
       </ScrollView>
     </View>

@@ -2,6 +2,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
 import SignInScreen from '../screens/authScreens/SignInScreen';
 import SignInWelcomeScreen from '../screens/authScreens/SignInWelcomeScreen';
+import SearchResultScreen from '../screens/SearchResultScreen';
 import SearchScreen from '../screens/SearchScreen';
 import DrawerNavigator from './DrawerNavigator';
 
@@ -28,6 +29,11 @@ export default function AuthStack() {
       <Auth.Screen
         name="SearchScreen"
         component={SearchScreen}
+        // options={{animation: 'slide_from_bottom'}}
+      />
+      <Auth.Screen
+        name="SearchResultScreen"
+        component={SearchResultScreen}
         // options={{animation: 'slide_from_bottom'}}
       />
     </Auth.Navigator>

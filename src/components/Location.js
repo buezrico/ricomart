@@ -27,8 +27,7 @@ const locations = [
   },
 ];
 
-export default function Location() {
-  const [currentLocation, setCurrentLocation] = useState('Port-Harcourt');
+export default function Location({currentLocation, setCurrentLocation}) {
   const [indexCheck, setIndexCheck] = useState(0);
 
   return (

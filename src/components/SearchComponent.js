@@ -10,13 +10,13 @@ import {
 } from 'react-native';
 import Icon from 'react-native-ico';
 import {colors, parameters} from '../global/styles';
-import {categories} from '../global/data';
+import {featuredItems} from '../global/data';
 import * as Animatable from 'react-native-animatable';
 import filter from 'lodash/filter';
 
 export default function SearchComponent({navigation}) {
   const [searchText, setSearchText] = useState('');
-  const [data, setData] = useState([...categories]);
+  const [data, setData] = useState([...featuredItems]);
 
   const inputRef = useRef(0);
 
@@ -33,12 +33,12 @@ export default function SearchComponent({navigation}) {
   };
 
   const handleSearch = text => {
-    const dataS = filter(categories, userSearch => {
+    const dataS = filter(featuredItems, userSearch => {
       return contains(userSearch, text);
     });
 
     setData([...dataS]);
-    setSearchText(text || [...dataS]);
+    setSearchText(text);
   };
 
   return (
@@ -159,6 +159,7 @@ export default function SearchComponent({navigation}) {
               onPress={() => {
                 setSearchText(item.name);
                 Keyboard.dismiss;
+                navigation.navigate('SearchResultScreen', {item: item.name});
                 // navigation.navigate("SearchScreen", {item: item.name})
               }}>
               <View

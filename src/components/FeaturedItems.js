@@ -2,12 +2,13 @@ import React from 'react';
 import {Image, ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-ico';
 import {colors} from '../global/styles';
-import {featuredItems} from '../global/data';
+import {stores} from '../global/data';
 
 export default function FeaturedItems() {
   return (
     <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-      {featuredItems.map((item, index) => {
+      {stores.map((item, index) => {
+        console.log(stores.map(item => item.products[0]));
         return (
           <TouchableOpacity
             activeOpacity={0.8}
@@ -16,7 +17,10 @@ export default function FeaturedItems() {
               marginRight: 15,
             }}>
             <View>
-              <Image source={item.image_url} style={{width: 100, height: 90}} />
+              <Image
+                source={item.products[0].image_url}
+                style={{width: 100, height: 90}}
+              />
               <View
                 style={{
                   position: 'absolute',
@@ -30,7 +34,7 @@ export default function FeaturedItems() {
                     color: colors.buttons,
                     fontSize: 12,
                   }}>
-                  {item.discount}% off
+                  {item.products[0].discount}% off
                 </Text>
               </View>
             </View>
@@ -43,11 +47,11 @@ export default function FeaturedItems() {
                   fontSize: 12,
                   maxWidth: 100,
                 }}>
-                {item.name}
+                {item.products[0].name}
               </Text>
 
               <Text style={{color: colors.grey1, fontSize: 16}}>
-                ₦{item.price}
+                ₦{item.products[0].price}
               </Text>
               <View
                 style={{
@@ -69,7 +73,7 @@ export default function FeaturedItems() {
                     marginLeft: 5,
                     width: 70,
                   }}>
-                  {item.store}
+                  {item.name}
                 </Text>
               </View>
             </View>

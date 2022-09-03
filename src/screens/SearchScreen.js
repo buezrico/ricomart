@@ -1,7 +1,6 @@
 import {View, Text, Modal} from 'react-native';
 import React, {useState} from 'react';
 import SearchComponent from '../components/SearchComponent';
-import HomeHeader from '../components/HomeHeader';
 
 export default function SearchScreen({navigation}) {
   const [searchModal, setSearchModal] = useState(false);
