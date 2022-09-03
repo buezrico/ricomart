@@ -41,7 +41,7 @@ export const stores = [
     id: 1,
     name: 'Petmeeys Closet',
     image_url: require('../../assets/images/stores/petmeezy.jpg'),
-    category: ['Bags', 'Shoes'],
+    category: ['Fashion'],
     rating: 5.0,
     deliveryTime: [1, 3],
     location: 'Lagos',
@@ -79,7 +79,7 @@ export const stores = [
     id: 2,
     name: 'Ajenny Home of Luxury',
     image_url: require('../../assets/images/stores/anny.jpg'),
-    category: ['Clothes'],
+    category: ['Fashion'],
     rating: 5.0,
     deliveryTime: [3, 6],
     location: 'Abuja',
@@ -118,7 +118,7 @@ export const stores = [
     id: 3,
     name: "Millie's Garrage",
     image_url: require('../../assets/images/stores/4.png'),
-    category: ['Shoes'],
+    category: ['Fashion', 'Phones'],
     rating: 5.0,
     deliveryTime: [2, 3],
     location: 'Owerri',
@@ -154,102 +154,11 @@ export const stores = [
   },
 ];
 
-export const featuredItems = [
-  // {
-  //   name: 'Hublot Watch',
-  //   image_url: require('../../assets/images/featured_items/hublot.jpg'),
-  //   price: 10000,
-  //   discount: 30,
-  //   store: "Zella's place",
-  // },
-  // {
-  //   name: 'Colourful stylish handbag',
-  //   image_url: require('../../assets/images/featured_items/bags.jpg'),
-  //   price: 4000,
-  //   discount: 15,
-  //   store: "Jennifer's Empire",
-  // },
-  // {
-  //   name: 'High Top Shoe',
-  //   image_url: require('../../assets/images/featured_items/shoe2.jpg'),
-  //   price: 26000,
-  //   discount: 24,
-  //   store: "Millie's Garage",
-  // },
-  // {
-  //   name: 'Comfortable Headwrap',
-  //   image_url: require('../../assets/images/featured_items/headwrap.jpg'),
-  //   price: 1500,
-  //   discount: 45,
-  //   store: "Zella's place",
-  // },
-
-  // {
-  //   name: 'Female Top',
-  //   image_url: require('../../assets/images/featured_items/top.jpg'),
-  //   price: 8000,
-  //   discount: 30,
-  //   store: "Jennie's Empire",
-  // },
-  // {
-  //   name: "Men's Stylish High shoe ",
-  //   image_url: require('../../assets/images/featured_items/show4.jpg'),
-  //   price: 305500,
-  //   discount: 10,
-  //   store: "Millie's Garage",
-  // },
-  // {
-  //   name: 'Universal slide',
-  //   image_url: require('../../assets/images/featured_items/slides.jpg'),
-  //   price: 12000,
-  //   discount: 20,
-  //   store: "Zella's place",
-  // },
-  {
-    name: "Men's Jeans",
-    image_url: require('../../assets/images/featured_items/jeans.jpg'),
-    price: 23000,
-    discount: 45,
-    store: "EU's Closet and Travels",
-  },
-  // {
-  //   name: 'vca',
-  //   image_url: require('../../assets/images/featured_items/vca.jpg'),
-  //   price: 3000,
-  //   discount: 30,
-  //   store: "Zella's place",
-  // },
-  // {
-  //   name: "Men's Stylish shoe",
-  //   image_url: require('../../assets/images/featured_items/shoe1.jpg'),
-  //   price: 15000,
-  //   discount: 10,
-  //   store: "Millie's Garage",
-  // },
-  // {
-  //   name: 'Female handbag',
-  //   image_url: require('../../assets/images/featured_items/whitebag.jpg'),
-  //   price: 9000,
-  //   discount: 35,
-  //   store: "Jennifer's Empire",
-  // },
-  // {
-  //   name: 'Universal shorts',
-  //   image_url: require('../../assets/images/featured_items/shorts.jpg'),
-  //   price: 6000,
-  //   discount: 20,
-  //   store: "Zella's place",
-  // },
-  // {
-  //   name: 'Male high top',
-  //   image_url: require('../../assets/images/featured_items/shoe3.jpg'),
-  //   price: 39000,
-  //   discount: 18,
-  //   store: "Millie's Garage",
-  // },
-];
-
 export const categories = [
+  {
+    name: 'All Stores',
+    image_url: require('../../assets/images/categories/store.png'),
+  },
   {
     name: 'Fashion',
     image_url: require('../../assets/images/categories/clothes-hanger.png'),
@@ -263,7 +172,7 @@ export const categories = [
     image_url: require('../../assets/images/categories/diamond-ring.png'),
   },
   {
-    name: 'Posmetics',
+    name: 'Cosmetics',
     image_url: require('../../assets/images/categories/cosmetics.png'),
   },
   {

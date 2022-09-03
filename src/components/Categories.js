@@ -10,9 +10,7 @@ import {
 import {colors} from '../global/styles';
 import {categories} from '../global/data';
 
-export default function Categories() {
-  const [currentCategory, setcurrentCategory] = useState('Jewelries');
-
+export default function Categories({currentCategory, setcurrentCategory}) {
   return (
     <FlatList
       horizontal={true}

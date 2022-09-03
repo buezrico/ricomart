@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
   Modal,
   ScrollView,
@@ -15,11 +15,13 @@ import HomeHeader from '../components/HomeHeader';
 import Location from '../components/Location';
 import SearchComponent from '../components/SearchComponent';
 import Stores from '../components/Stores';
+import {stores} from '../global/data';
 import {colors} from '../global/styles';
 
 export default function HomeScreen({navigation}) {
   const [searchModal, setSearchModal] = useState(false);
-  const [currentLocation, setCurrentLocation] = useState('Port-Harcourt');
+  const [currentLocation, setCurrentLocation] = useState('Nigeria');
+  const [currentCategory, setcurrentCategory] = useState('All Stores');
 
   return (
     <View style={styles.container}>
@@ -62,7 +64,10 @@ export default function HomeScreen({navigation}) {
             paddingVertical: 15,
             paddingHorizontal: 10,
           }}>
-          <Categories />
+          <Categories
+            currentCategory={currentCategory}
+            setcurrentCategory={setcurrentCategory}
+          />
         </View>
 
         <View
@@ -70,7 +75,11 @@ export default function HomeScreen({navigation}) {
             // paddingTop: 15,
             paddingHorizontal: 10,
           }}>
-          <Stores currentLocation={currentLocation} />
+          <Stores
+            currentLocation={currentLocation}
+            currentCategory={currentCategory}
+            stores={stores}
+          />
         </View>
       </ScrollView>
     </View>

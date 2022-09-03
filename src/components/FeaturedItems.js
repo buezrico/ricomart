@@ -8,7 +8,6 @@ export default function FeaturedItems() {
   return (
     <ScrollView horizontal showsHorizontalScrollIndicator={false}>
       {stores.map((item, index) => {
-        console.log(stores.map(item => item.products[0]));
         return (
           <TouchableOpacity
             activeOpacity={0.8}
