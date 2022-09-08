@@ -206,41 +206,6 @@ export default function SearchComponent({navigation}) {
           data={data}
           renderItem={({item}) => {
             return <Products {...item} />;
-            // return item.products.map((item, index) => {
-            //   <TouchableOpacity
-            //     onPress={() => {
-            //       setSearchText(item.name);
-            //       Keyboard.dismiss;
-            //       navigation.navigate('SearchResultScreen', {
-            //         item: item.name,
-            //       });
-            //       // navigation.navigate("SearchScreen", {item: item.name})
-            //     }}>
-            //     <View
-            //       style={{
-            //         flexDirection: 'row',
-            //         alignItems: 'center',
-            //         marginBottom: 20,
-            //         paddingHorizontal: 5,
-            //       }}>
-            //       <Icon
-            //         name="search"
-            //         group="essential"
-            //         color={colors.black}
-            //         height={18}
-            //         width={18}
-            //       />
-            //       <Text
-            //         style={{
-            //           fontSize: 17,
-            //           color: colors.grey3,
-            //           marginLeft: 15,
-            //         }}>
-            //         {item.name}
-            //       </Text>
-            //     </View>
-            //   </TouchableOpacity>;
-            // });
           }}
           keyExtractor={item => item.name}
         />

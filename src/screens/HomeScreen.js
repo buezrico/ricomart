@@ -72,7 +72,7 @@ export default function HomeScreen({navigation}) {
 
         <View
           style={{
-            // paddingTop: 15,
+            paddingTop: 15,
             paddingHorizontal: 10,
           }}>
           <Stores
