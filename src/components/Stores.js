@@ -22,16 +22,15 @@ export default function Stores({stores, currentLocation, currentCategory}) {
       .filter(store =>
         currentCategory == 'All Stores'
           ? store.category == store.category
-          : store.category.find(cat => cat == currentCategory) ==
-            currentCategory,
+          : store.category.includes(currentCategory),
       ).length;
     SetStoreLength(lengthStore);
   }, [currentCategory, currentLocation]);
 
   return storeLength == 0 ? (
-    <View style={{alignItems: 'center', marginVertical: 50}}>
+    <View style={{alignItems: 'center', marginTop: 100}}>
       <Text style={{color: colors.black, fontSize: 20, fontWeight: 'bold'}}>
-        No Vendor Available
+        No Vendor Available in this Region
       </Text>
       <Text style={{color: colors.black, fontSize: 18}}>
         Search other regions or categories
@@ -47,8 +46,7 @@ export default function Stores({stores, currentLocation, currentCategory}) {
       .filter(store =>
         currentCategory == 'All Stores'
           ? store.category == store.category
-          : store.category.find(cat => cat == currentCategory) ==
-            currentCategory,
+          : store.category.includes(currentCategory),
       )
       .map((store, index) => {
         return (

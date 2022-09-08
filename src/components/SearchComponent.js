@@ -10,19 +10,64 @@ import {
 } from 'react-native';
 import Icon from 'react-native-ico';
 import {colors, parameters} from '../global/styles';
-import {featuredItems} from '../global/data';
+import {categories, stores} from '../global/data';
 import * as Animatable from 'react-native-animatable';
 import filter from 'lodash/filter';
 
 export default function SearchComponent({navigation}) {
   const [searchText, setSearchText] = useState('');
-  const [data, setData] = useState([...featuredItems]);
+  const [data, setData] = useState([...stores]);
+
+  const Products = props => {
+    return props.products.map((product, index) => {
+      return (
+        <TouchableOpacity
+          key={index}
+          onPress={() => {
+            setSearchText(product.name);
+            Keyboard.dismiss;
+            navigation.navigate('SearchResultScreen', {
+              product: product.name,
+            });
+          }}>
+          <View
+            style={{
+              flexDirection: 'row',
+              alignItems: 'center',
+              marginBottom: 20,
+              paddingHorizontal: 5,
+            }}>
+            <Icon
+              name="search"
+              group="essential"
+              color={colors.black}
+              height={18}
+              width={18}
+            />
+            <Text
+              style={{
+                fontSize: 17,
+                color: colors.grey3,
+                marginLeft: 15,
+              }}>
+              {product.name}
+            </Text>
+          </View>
+        </TouchableOpacity>
+      );
+    });
+  };
 
   const inputRef = useRef(0);
 
+  const dataLength = data.map(store => {
+    return store.products.map(product => {
+      return product.name;
+    }).length;
+  });
   useEffect(() => {
     inputRef.current.focus();
-  }, []);
+  }, [searchText]);
 
   const contains = ({name}, query) => {
     if (name.includes(query)) {
@@ -33,8 +78,13 @@ export default function SearchComponent({navigation}) {
   };
 
   const handleSearch = text => {
-    const dataS = filter(featuredItems, userSearch => {
-      return contains(userSearch, text);
+    const dataS = stores.map(store => {
+      return {
+        ...store,
+        products: store.products.filter(userSearch => {
+          return contains(userSearch, text);
+        }),
+      };
     });
 
     setData([...dataS]);
@@ -139,7 +189,7 @@ export default function SearchComponent({navigation}) {
       </View>
 
       <View style={{padding: 10}}>
-        {data.length > 0 ? null : (
+        {dataLength.reduce((a, b) => a + b, 0) > 0 ? null : (
           <View
             style={{
               marginBottom: 15,
@@ -154,39 +204,44 @@ export default function SearchComponent({navigation}) {
 
         <FlatList
           data={data}
-          renderItem={({item}) => (
-            <TouchableOpacity
-              onPress={() => {
-                setSearchText(item.name);
-                Keyboard.dismiss;
-                navigation.navigate('SearchResultScreen', {item: item.name});
-                // navigation.navigate("SearchScreen", {item: item.name})
-              }}>
-              <View
-                style={{
-                  flexDirection: 'row',
-                  alignItems: 'center',
-                  marginBottom: 20,
-                  paddingHorizontal: 5,
-                }}>
-                <Icon
-                  name="search"
-                  group="essential"
-                  color={colors.black}
-                  height={18}
-                  width={18}
-                />
-                <Text
-                  style={{
-                    fontSize: 17,
-                    color: colors.grey3,
-                    marginLeft: 15,
-                  }}>
-                  {item.name}
-                </Text>
-              </View>
-            </TouchableOpacity>
-          )}
+          renderItem={({item}) => {
+            return <Products {...item} />;
+            // return item.products.map((item, index) => {
+            //   <TouchableOpacity
+            //     onPress={() => {
+            //       setSearchText(item.name);
+            //       Keyboard.dismiss;
+            //       navigation.navigate('SearchResultScreen', {
+            //         item: item.name,
+            //       });
+            //       // navigation.navigate("SearchScreen", {item: item.name})
+            //     }}>
+            //     <View
+            //       style={{
+            //         flexDirection: 'row',
+            //         alignItems: 'center',
+            //         marginBottom: 20,
+            //         paddingHorizontal: 5,
+            //       }}>
+            //       <Icon
+            //         name="search"
+            //         group="essential"
+            //         color={colors.black}
+            //         height={18}
+            //         width={18}
+            //       />
+            //       <Text
+            //         style={{
+            //           fontSize: 17,
+            //           color: colors.grey3,
+            //           marginLeft: 15,
+            //         }}>
+            //         {item.name}
+            //       </Text>
+            //     </View>
+            //   </TouchableOpacity>;
+            // });
+          }}
           keyExtractor={item => item.name}
         />
       </View>
