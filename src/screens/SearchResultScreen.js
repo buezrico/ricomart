@@ -21,6 +21,7 @@ export default function SearchResult({navigation, route}) {
               deliveryTime={item.deliveryTime}
               products={item.products}
               product={route.params.product}
+              navigation={navigation}
             />
           );
         }}

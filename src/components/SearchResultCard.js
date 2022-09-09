@@ -1,5 +1,5 @@
 import React from 'react';
-import {Image, Text, TouchableOpacity, View, FlatList} from 'react-native';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {colors, parameters} from '../global/styles';
 
 export default function SearchResultCard({
@@ -9,10 +9,12 @@ export default function SearchResultCard({
   rating,
   deliveryTime,
   products,
-  product,
+  navigation,
 }) {
   return (
-    <TouchableOpacity activeOpacity={0.8}>
+    <TouchableOpacity
+      activeOpacity={0.8}
+      onPress={() => navigation.navigate('RestaurantHomeScreen')}>
       <View
         style={{
           backgroundColor: colors.white,

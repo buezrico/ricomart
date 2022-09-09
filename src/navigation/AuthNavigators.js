@@ -2,8 +2,10 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
 import SignInScreen from '../screens/authScreens/SignInScreen';
 import SignInWelcomeScreen from '../screens/authScreens/SignInWelcomeScreen';
+import RestaurantHomeScreen from '../screens/RestaurantHomeScreen';
 import SearchResultScreen from '../screens/SearchResultScreen';
 import SearchScreen from '../screens/SearchScreen';
+import {ClientStack} from './ClientStack';
 import DrawerNavigator from './DrawerNavigator';
 
 const Auth = createNativeStackNavigator();
@@ -26,14 +28,10 @@ export default function AuthStack() {
         component={SignInScreen}
         options={{animation: 'slide_from_bottom'}}
       />
+
       <Auth.Screen
-        name="SearchScreen"
-        component={SearchScreen}
-        // options={{animation: 'slide_from_bottom'}}
-      />
-      <Auth.Screen
-        name="SearchResultScreen"
-        component={SearchResultScreen}
+        name="RestaurantHomeScreen"
+        component={RestaurantHomeScreen}
         // options={{animation: 'slide_from_bottom'}}
       />
     </Auth.Navigator>

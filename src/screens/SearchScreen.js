@@ -7,11 +7,7 @@ export default function SearchScreen({navigation}) {
 
   return (
     <View style={{flex: 1, paddingHorizontal: 10}}>
-      <SearchComponent
-        navigation={navigation}
-        searchModal={searchModal}
-        setSearchModal={setSearchModal}
-      />
+      <SearchComponent navigation={navigation} />
     </View>
   );
 }

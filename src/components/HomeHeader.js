@@ -1,19 +1,10 @@
 import {Avatar} from '@rneui/themed';
 import React from 'react';
-import {useState} from 'react';
-import {
-  Image,
-  Pressable,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-ico';
-import MarqueeView from 'react-native-marquee-view';
 import {colors, parameters} from '../global/styles';
 
-export default function HomeHeader({navigation, searchModal, setSearchModal}) {
+export default function HomeHeader({navigation}) {
   return (
     <View style={styles.header}>
       <View style={{width: '50%', flexDirection: 'row', alignItems: 'center'}}>
@@ -33,44 +24,9 @@ export default function HomeHeader({navigation, searchModal, setSearchModal}) {
           </Text>
         </View>
       </View>
-      {/* <Pressable activeOpacity={0.5} onPress={() => setSearchModal(true)}>
-        <View
-          style={{
-            flexDirection: 'row',
-            alignItems: 'center',
-            backgroundColor: colors.headerText,
-            borderRadius: 10,
-            paddingHorizontal: 20,
-            paddingVertical: 10,
-            borderColor: colors.black,
-            borderWidth: 0.5,
-            ...parameters.shadow,
-          }}>
-          <Icon name="search" group="essential" color={colors.black} />
-          <Text
-            style={{
-              ...styles.headerText,
-              color: colors.grey2,
-              marginLeft: 20,
-              fontWeight: 'bold',
-            }}>
-            Search for vendors and products
-          </Text>
-        </View>
-      </Pressable> */}
-
-      {/* <View style={{width: 150}}>
-        <MarqueeView speed={0.06}>
-          <View style={{paddingHorizontal: 10}}>
-            <Text style={styles.headerText}>
-              Free delivery in Port-Harcourt and Lagos!!
-            </Text>
-          </View>
-        </MarqueeView>
-      </View> */}
 
       <TouchableOpacity
-        onPress={() => navigation.navigate('SearchScreen')}
+        onPress={() => navigation.navigate('ClientStack')}
         style={{
           alignItems: 'center',
           justifyContent: 'center',

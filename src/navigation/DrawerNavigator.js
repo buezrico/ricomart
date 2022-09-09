@@ -6,6 +6,7 @@ import Icon from 'react-native-ico';
 import {colors} from '../global/styles';
 import BusinessConsoleScreen from '../screens/authScreens/BusinessConsoleScreen';
 import DrawerContent from '../components/DrawerContent';
+import {ClientStack} from './ClientStack';
 
 const Drawer = createDrawerNavigator();
 

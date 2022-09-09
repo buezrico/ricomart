@@ -1,19 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {
-  Modal,
-  ScrollView,
-  StatusBar,
-  StyleSheet,
-  Text,
-  TextInput,
-  View,
-} from 'react-native';
-import Icon from 'react-native-ico';
+import {ScrollView, StyleSheet, View} from 'react-native';
 import Categories from '../components/Categories';
 import FeaturedItems from '../components/FeaturedItems';
 import HomeHeader from '../components/HomeHeader';
 import Location from '../components/Location';
-import SearchComponent from '../components/SearchComponent';
 import Stores from '../components/Stores';
 import {stores} from '../global/data';
 import {colors} from '../global/styles';
@@ -25,21 +15,8 @@ export default function HomeScreen({navigation}) {
 
   return (
     <View style={styles.container}>
-      <HomeHeader
-        navigation={navigation}
-        searchModal={searchModal}
-        setSearchModal={setSearchModal}
-      />
+      <HomeHeader navigation={navigation} />
 
-      <Modal visible={searchModal} animationType="fade" transparent={false}>
-        <View style={{flex: 1, paddingHorizontal: 10}}>
-          <SearchComponent
-            navigation={navigation}
-            searchModal={searchModal}
-            setSearchModal={setSearchModal}
-          />
-        </View>
-      </Modal>
       <ScrollView showsVerticalScrollIndicator={false}>
         <View
           style={{paddingTop: 10, paddingBottom: 15, paddingHorizontal: 10}}>
@@ -79,6 +56,7 @@ export default function HomeScreen({navigation}) {
             currentLocation={currentLocation}
             currentCategory={currentCategory}
             stores={stores}
+            navigation={navigation}
           />
         </View>
       </ScrollView>

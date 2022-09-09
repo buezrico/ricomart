@@ -9,7 +9,12 @@ import {
 } from 'react-native';
 import {colors, parameters} from '../global/styles';
 
-export default function Stores({stores, currentLocation, currentCategory}) {
+export default function Stores({
+  navigation,
+  stores,
+  currentLocation,
+  currentCategory,
+}) {
   const [storeLength, SetStoreLength] = useState();
 
   useEffect(() => {
@@ -50,7 +55,10 @@ export default function Stores({stores, currentLocation, currentCategory}) {
       )
       .map((store, index) => {
         return (
-          <TouchableOpacity activeOpacity={0.8} key={index}>
+          <TouchableOpacity
+            activeOpacity={0.8}
+            key={index}
+            onPress={() => navigation.navigate('RestaurantHomeScreen')}>
             <View
               style={{
                 backgroundColor: colors.white,
