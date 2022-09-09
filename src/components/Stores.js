@@ -55,10 +55,7 @@ export default function Stores({
       )
       .map((store, index) => {
         return (
-          <TouchableOpacity
-            activeOpacity={0.8}
-            key={index}
-            onPress={() => navigation.navigate('RestaurantHomeScreen')}>
+          <View key={index}>
             <View
               style={{
                 backgroundColor: colors.white,
@@ -66,7 +63,9 @@ export default function Stores({
                 ...parameters.shadow,
                 borderRadius: 2,
               }}>
-              <View>
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={() => navigation.navigate('RestaurantHomeScreen')}>
                 <Image
                   source={store.image_url}
                   style={{width: '100%', height: 160}}
@@ -108,12 +107,12 @@ export default function Stores({
                     {store.deliveryTime.map(day => day).join(' - ')} Days
                   </Text>
                 </View>
-              </View>
-              <View
+              </TouchableOpacity>
+
+              <ScrollView
+                horizontal
                 style={{
                   paddingVertical: 10,
-                  flexDirection: 'row',
-                  alignItems: 'center',
                 }}>
                 {store.products.map((product, index) => {
                   return (
@@ -165,9 +164,9 @@ export default function Stores({
                     </TouchableOpacity>
                   );
                 })}
-              </View>
+              </ScrollView>
             </View>
-          </TouchableOpacity>
+          </View>
         );
       })
   );

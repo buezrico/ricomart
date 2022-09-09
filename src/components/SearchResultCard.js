@@ -1,8 +1,9 @@
 import React from 'react';
-import {Image, Text, TouchableOpacity, View} from 'react-native';
+import {Image, ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import {colors, parameters} from '../global/styles';
 
 export default function SearchResultCard({
+  index,
   image,
   name,
   category,
@@ -12,9 +13,7 @@ export default function SearchResultCard({
   navigation,
 }) {
   return (
-    <TouchableOpacity
-      activeOpacity={0.8}
-      onPress={() => navigation.navigate('RestaurantHomeScreen')}>
+    <View>
       <View
         style={{
           backgroundColor: colors.white,
@@ -22,7 +21,14 @@ export default function SearchResultCard({
           ...parameters.shadow,
           borderRadius: 2,
         }}>
-        <View>
+        <TouchableOpacity
+          activeOpacity={0.8}
+          onPress={() =>
+            navigation.navigate('RestaurantHomeScreen', {
+              id: index,
+              restaurant: name,
+            })
+          }>
           <Image source={image} style={{width: '100%', height: 160}} />
           <View
             style={{
@@ -56,12 +62,12 @@ export default function SearchResultCard({
               {deliveryTime.map(day => day).join(' - ')} Days
             </Text>
           </View>
-        </View>
-        <View
+        </TouchableOpacity>
+
+        <ScrollView
+          horizontal
           style={{
             paddingVertical: 10,
-            flexDirection: 'row',
-            alignItems: 'center',
           }}>
           {products
             // .filter(item => item.includes(product))
@@ -115,8 +121,8 @@ export default function SearchResultCard({
                 </TouchableOpacity>
               );
             })}
-        </View>
+        </ScrollView>
       </View>
-    </TouchableOpacity>
+    </View>
   );
 }
