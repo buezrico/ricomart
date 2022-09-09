@@ -38,7 +38,7 @@ export default function RootClientTabs() {
           ),
         }}
       />
-      <ClientTabs.Screen
+      {/* <ClientTabs.Screen
         name="ClientStack"
         component={ClientStack}
         options={{
@@ -52,7 +52,7 @@ export default function RootClientTabs() {
             />
           ),
         }}
-      />
+      /> */}
       <ClientTabs.Screen
         name="MyOrdersScreen"
         component={MyOrdersScreen}

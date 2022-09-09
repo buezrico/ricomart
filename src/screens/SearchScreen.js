@@ -1,9 +1,11 @@
-import {View, Text, Modal} from 'react-native';
-import React, {useState} from 'react';
+import React, {useEffect} from 'react';
+import {View} from 'react-native';
 import SearchComponent from '../components/SearchComponent';
 
 export default function SearchScreen({navigation}) {
-  const [searchModal, setSearchModal] = useState(false);
+  useEffect(() => {
+    console.log('working');
+  }, []);
 
   return (
     <View style={{flex: 1, paddingHorizontal: 10}}>

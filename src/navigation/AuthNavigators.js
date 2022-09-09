@@ -18,6 +18,11 @@ export default function AuthStack() {
   return (
     <Auth.Navigator screenOptions={screenOptions}>
       <Auth.Screen
+        name="RestaurantHomeScreen"
+        component={RestaurantHomeScreen}
+        // options={{animation: 'slide_from_bottom'}}
+      />
+      <Auth.Screen
         name="DrawerNavigator"
         component={DrawerNavigator}
         // options={{animation: 'slide_from_bottom'}}
@@ -27,12 +32,6 @@ export default function AuthStack() {
         name="SignInScreen"
         component={SignInScreen}
         options={{animation: 'slide_from_bottom'}}
-      />
-
-      <Auth.Screen
-        name="RestaurantHomeScreen"
-        component={RestaurantHomeScreen}
-        // options={{animation: 'slide_from_bottom'}}
       />
     </Auth.Navigator>
   );

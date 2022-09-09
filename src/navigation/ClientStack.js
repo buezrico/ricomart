@@ -19,10 +19,10 @@ export function ClientStack() {
         name="SearchResultScreen"
         component={SearchResultScreen}
       />
-      <ClientStacks.Screen
+      {/* <ClientStacks.Screen
         name="RestaurantHomeScreen"
         component={RestaurantHomeScreen}
-      />
+      /> */}
     </ClientStacks.Navigator>
   );
 }
