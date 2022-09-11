@@ -68,6 +68,7 @@ export default function SearchResultCard({
           horizontal
           style={{
             paddingVertical: 10,
+            paddingLeft: 10,
           }}>
           {products
             // .filter(item => item.includes(product))

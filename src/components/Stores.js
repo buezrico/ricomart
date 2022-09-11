@@ -113,6 +113,7 @@ export default function Stores({
                 horizontal
                 style={{
                   paddingVertical: 10,
+                  paddingLeft: 10,
                 }}>
                 {store.products.map((product, index) => {
                   return (

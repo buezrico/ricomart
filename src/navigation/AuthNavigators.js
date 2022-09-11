@@ -17,17 +17,12 @@ const screenOptions = {
 export default function AuthStack() {
   return (
     <Auth.Navigator screenOptions={screenOptions}>
-      {/* <Auth.Screen
-        name="RestaurantHomeScreen"
-        component={RestaurantHomeScreen}
-        // options={{animation: 'slide_from_bottom'}}
-      /> */}
-      <Auth.Screen name="SignInWelcomeScreen" component={SignInWelcomeScreen} />
+      {/* <Auth.Screen name="SignInWelcomeScreen" component={SignInWelcomeScreen} />
       <Auth.Screen
         name="SignInScreen"
         component={SignInScreen}
         options={{animation: 'slide_from_bottom'}}
-      />
+      /> */}
       <Auth.Screen
         name="DrawerNavigator"
         component={DrawerNavigator}
