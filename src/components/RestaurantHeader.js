@@ -12,6 +12,7 @@ import Icon from 'react-native-ico';
 import {useState} from 'react';
 
 export default function RestaurantHeader({navigation, id}) {
+  const store = stores[id];
   const index = 10;
   const currentValue = new Animated.Value(1);
 
@@ -47,7 +48,7 @@ export default function RestaurantHeader({navigation, id}) {
   return (
     <View style={{}}>
       <ImageBackground
-        style={{height: 180, width: '100%'}}
+        style={{height: 170, width: '100%'}}
         source={stores[id].image_url}>
         <View
           style={{
@@ -113,6 +114,48 @@ export default function RestaurantHeader({navigation, id}) {
           )}
         </View>
       </ImageBackground>
+      <View
+        style={{
+          padding: 10,
+          flexDirection: 'row',
+          justifyContent: 'space-between',
+        }}>
+        <View>
+          <Text
+            numberOfLines={1}
+            style={{
+              color: colors.black,
+              fontSize: 20,
+              fontWeight: 'bold',
+            }}>
+            {store.name}
+          </Text>
+          <Text style={{color: colors.black, marginTop: 5, fontSize: 16}}>
+            ⭐ {store.rating} • ₦₦ •{' '}
+            {store.category.map(cat => cat).join('  •  ')}
+          </Text>
+        </View>
+
+        <View
+          style={{
+            backgroundColor: colors.white,
+            paddingHorizontal: 10,
+            paddingVertical: 5,
+            borderRadius: 10,
+            alignItems: 'center',
+            justifyContent: 'center',
+          }}>
+          <Text
+            style={{
+              fontWeight: 'bold',
+              fontSize: 15,
+
+              color: colors.black,
+            }}>
+            {store.deliveryTime.map(day => day).join(' - ')} Days
+          </Text>
+        </View>
+      </View>
     </View>
   );
 }

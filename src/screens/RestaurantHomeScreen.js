@@ -4,13 +4,13 @@ import {colors} from '../global/styles';
 import RestaurantHeader from '../components/RestaurantHeader';
 import {stores} from '../global/data';
 import {TabBar, TabView} from 'react-native-tab-view';
+import ProductScreen from './RestaurantTabs/ProductScreen';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const initialLayout = SCREEN_WIDTH;
 
 export default function RestaurantHomeScreen({navigation, route}) {
   const {id, restaurant} = route.params;
-  const store = stores[id];
 
   const [routes] = useState([
     {
@@ -73,44 +73,6 @@ export default function RestaurantHomeScreen({navigation, route}) {
             restaurant={restaurant}
             navigation={navigation}
           />
-
-          <View
-            style={{
-              padding: 10,
-              flexDirection: 'row',
-              justifyContent: 'space-between',
-            }}>
-            <View>
-              <Text
-                numberOfLines={1}
-                style={{
-                  color: colors.black,
-                  fontSize: 20,
-                  fontWeight: 'bold',
-                }}>
-                {store.name} - {store.location}
-              </Text>
-              <Text style={{color: colors.black, marginTop: 5, fontSize: 16}}>
-                ⭐ {store.rating} • ₦₦ •{' '}
-                {store.category.map(cat => cat).join('  •  ')}
-              </Text>
-            </View>
-
-            <Text
-              style={{
-                fontWeight: 'bold',
-                fontSize: 15,
-                backgroundColor: colors.white,
-                color: colors.black,
-                padding: 10,
-                borderRadius: 10,
-                position: 'absolute',
-                top: -20,
-                right: 20,
-              }}>
-              {store.deliveryTime.map(day => day).join(' - ')} Days
-            </Text>
-          </View>
         </View>
 
         <View style={{}}>
@@ -123,6 +85,8 @@ export default function RestaurantHomeScreen({navigation, route}) {
             tabBarPosition="top"
           />
         </View>
+
+        {index === 0 && <ProductScreen id={id} />}
       </ScrollView>
     </View>
   );

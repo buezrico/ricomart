@@ -9,7 +9,6 @@ import {stores} from '../global/data';
 import {colors} from '../global/styles';
 
 export default function HomeScreen({navigation}) {
-  const [searchModal, setSearchModal] = useState(false);
   const [currentLocation, setCurrentLocation] = useState('Nigeria');
   const [currentCategory, setcurrentCategory] = useState('All Stores');
 
