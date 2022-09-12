@@ -47,7 +47,7 @@ export default function RestaurantHeader({navigation, id}) {
   return (
     <View style={{}}>
       <ImageBackground
-        style={{height: 150, width: '100%'}}
+        style={{height: 180, width: '100%'}}
         source={stores[id].image_url}>
         <View
           style={{

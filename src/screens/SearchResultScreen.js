@@ -4,6 +4,7 @@ import {colors, parameters} from '../global/styles';
 import SearchResultCard from '../components/SearchResultCard';
 import {stores} from '../global/data';
 import Icon from 'react-native-ico';
+import {fonts} from '@rneui/base';
 
 export default function SearchResult({navigation, route}) {
   return (
