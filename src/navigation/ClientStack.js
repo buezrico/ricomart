@@ -1,7 +1,7 @@
 import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React, {useLayoutEffect} from 'react';
-import RestaurantHomeScreen from '../screens/RestaurantHomeScreen';
+import StoreHomeScreen from '../screens/StoreHomeScreen';
 import SearchResultScreen from '../screens/SearchResultScreen';
 import SearchScreen from '../screens/SearchScreen';
 
@@ -14,12 +14,10 @@ const screenOptions = {
 export function ClientStack({navigation, route}) {
   useLayoutEffect(() => {
     const routeName = getFocusedRouteNameFromRoute(route);
-    if (routeName === 'SearchResultScreeninactive') {
-      navigation.setOptions({tabBarVisible: false});
-      console.log(routeName + 'active');
+    if (routeName === 'RestaurantHomeScreen') {
+      navigation.setOptions({tabBarStyle: {display: 'none'}});
     } else {
-      navigation.setOptions({tabBarVisible: true});
-      console.log(routeName + 'inactive');
+      navigation.setOptions({tabBarStyle: {display: 'none'}});
     }
   }, [navigation, route]);
   return (
@@ -29,10 +27,7 @@ export function ClientStack({navigation, route}) {
         name="SearchResultScreen"
         component={SearchResultScreen}
       />
-      <ClientStacks.Screen
-        name="RestaurantHomeScreen"
-        component={RestaurantHomeScreen}
-      />
+      <ClientStacks.Screen name="StoreHomeScreen" component={StoreHomeScreen} />
     </ClientStacks.Navigator>
   );
 }

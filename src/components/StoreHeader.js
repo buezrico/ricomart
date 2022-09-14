@@ -6,12 +6,12 @@ import {
   Animated,
 } from 'react-native';
 import React, {useEffect} from 'react';
-import {colors} from '../global/styles';
+import {colors, parameters} from '../global/styles';
 import {stores} from '../global/data';
 import Icon from 'react-native-ico';
 import {useState} from 'react';
 
-export default function RestaurantHeader({navigation, id}) {
+export default function StoreHeader({navigation, id}) {
   const store = stores[id];
   const index = 10;
   const currentValue = new Animated.Value(1);
@@ -65,6 +65,7 @@ export default function RestaurantHeader({navigation, id}) {
               height: 40,
               width: 40,
               backgroundColor: colors.white,
+              ...parameters.shadow,
               borderRadius: 50,
             }}>
             <Icon
@@ -82,6 +83,8 @@ export default function RestaurantHeader({navigation, id}) {
               height: 40,
               width: 40,
               backgroundColor: colors.white,
+              ...parameters.shadow,
+
               borderRadius: 50,
             }}>
             {liked && index == counter ? (
@@ -140,10 +143,11 @@ export default function RestaurantHeader({navigation, id}) {
           style={{
             backgroundColor: colors.white,
             paddingHorizontal: 10,
-            paddingVertical: 5,
+            // paddingVertical: 5,
             borderRadius: 10,
             alignItems: 'center',
             justifyContent: 'center',
+            ...parameters.shadow,
           }}>
           <Text
             style={{

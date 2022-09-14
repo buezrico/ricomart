@@ -1,15 +1,21 @@
-import {View, Text, ScrollView, Dimensions} from 'react-native';
+import {
+  View,
+  Text,
+  ScrollView,
+  Dimensions,
+  TouchableOpacity,
+} from 'react-native';
 import React, {useState} from 'react';
-import {colors} from '../global/styles';
-import RestaurantHeader from '../components/RestaurantHeader';
+import {colors, parameters} from '../global/styles';
+import StoreHeader from '../components/StoreHeader';
 import {stores} from '../global/data';
 import {TabBar, TabView} from 'react-native-tab-view';
-import ProductScreen from './RestaurantTabs/ProductScreen';
+import ProductScreen from './StoreTabs/ProductScreen';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 const initialLayout = SCREEN_WIDTH;
 
-export default function RestaurantHomeScreen({navigation, route}) {
+export default function StoreHomeScreen({navigation, route}) {
   const {id, restaurant} = route.params;
 
   const [routes] = useState([
@@ -66,9 +72,9 @@ export default function RestaurantHomeScreen({navigation, route}) {
 
   return (
     <View style={{}}>
-      <ScrollView>
+      <ScrollView stickyHeaderIndices={[1]} style={{marginBottom: 30}}>
         <View>
-          <RestaurantHeader
+          <StoreHeader
             id={id}
             restaurant={restaurant}
             navigation={navigation}
@@ -86,8 +92,30 @@ export default function RestaurantHomeScreen({navigation, route}) {
           />
         </View>
 
-        {index === 0 && <ProductScreen id={id} />}
+        <View>{index === 0 && <ProductScreen id={id} />}</View>
       </ScrollView>
+
+      <TouchableOpacity activeOpacity={0.8}>
+        <View
+          style={{
+            backgroundColor: colors.buttons,
+            ...parameters.shadow,
+            paddingHorizontal: 40,
+            height: 50,
+            width: '100%',
+            position: 'absolute',
+            bottom: 0,
+            left: 0,
+            flexDirection: 'row',
+            alignItems: 'center',
+            justifyContent: 'space-between',
+          }}>
+          <Text style={{fontSize: 20, color: colors.white}}>View Cart</Text>
+          <View>
+            <Text style={{fontSize: 25, color: colors.white}}>0</Text>
+          </View>
+        </View>
+      </TouchableOpacity>
     </View>
   );
 }

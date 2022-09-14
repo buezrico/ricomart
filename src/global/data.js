@@ -16,6 +16,8 @@ export const stores = [
         discount: 30,
         timesBought: 400,
         // store: "Zella's place",
+        description:
+          'Lorem ipsum dolor, sit amet juhd elit. Blanditiis beatae in laborum dolorum iure ducimus delectus doloremque amet veritatis deleniti, illo, numquam nulla sapiente facere, est tenetur exercitationem similique ad',
       },
       {
         id: 1,
@@ -25,6 +27,8 @@ export const stores = [
         discount: 45,
         timesBought: 590,
         // store: "Zella's place",
+        description:
+          'Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility',
       },
       {
         id: 2,
@@ -34,6 +38,8 @@ export const stores = [
         discount: 30,
         timesBought: 76,
         // store: "Zella's place",
+        description:
+          'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis beatae in laborum dolorum iure ducimus delectus doloremque amet veritatis deleniti, illo, numquam nulla sapiente facere, est tenetur exercitationem similique ad',
       },
       {
         id: 3,
@@ -43,6 +49,8 @@ export const stores = [
         discount: 30,
         timesBought: 400,
         // store: "Zella's place",
+        description:
+          'Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility',
       },
       {
         id: 4,
@@ -52,6 +60,8 @@ export const stores = [
         discount: 45,
         timesBought: 590,
         // store: "Zella's place",
+        description:
+          'Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility',
       },
       {
         id: 5,
@@ -61,6 +71,8 @@ export const stores = [
         discount: 30,
         timesBought: 76,
         // store: "Zella's place",
+        description:
+          'Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility',
       },
     ],
   },
@@ -74,49 +86,114 @@ export const stores = [
     location: 'Lagos',
     products: [
       {
-        id: 0,
+        id: 1,
         name: 'Colourful stylish handbag',
         image_url: require('../../assets/images/featured_items/bags.jpg'),
         price: 4000,
         discount: 15,
         timesBought: 50,
         // store: "Zella's place",
+        description:
+          'Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility',
       },
       {
-        id: 1,
+        id: 2,
         name: 'Female handbag',
         image_url: require('../../assets/images/featured_items/whitebag.jpg'),
         price: 9000,
         discount: 35,
         timesBought: 632,
         // store: "Zella's place",
+        description:
+          'Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility',
       },
       {
-        id: 2,
+        id: 3,
         name: 'Universal slide',
         image_url: require('../../assets/images/featured_items/slides.jpg'),
         price: 12000,
         discount: 20,
         timesBought: 954,
         // store: "Zella's place",
+        description:
+          'Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility',
       },
       {
-        id: 3,
+        id: 4,
         name: 'Colourful stylish handbag 2',
         image_url: require('../../assets/images/featured_items/bags.jpg'),
         price: 4000,
         discount: 15,
         timesBought: 50,
         // store: "Zella's place",
+        description:
+          'Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility',
       },
       {
-        id: 4,
+        id: 5,
         name: 'Female handbag 2',
         image_url: require('../../assets/images/featured_items/whitebag.jpg'),
         price: 9000,
         discount: 35,
         timesBought: 632,
         // store: "Zella's place",
+        description:
+          'Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility',
+      },
+      {
+        id: 1,
+        name: 'Colourful stylish handbag',
+        image_url: require('../../assets/images/featured_items/bags.jpg'),
+        price: 4000,
+        discount: 15,
+        timesBought: 50,
+        // store: "Zella's place",
+        description:
+          'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis beatae in laborum dolorum iure ducimus delectus doloremque amet veritatis deleniti, illo, numquam nulla sapiente facere, est tenetur exercitationem similique ad',
+      },
+      {
+        id: 2,
+        name: 'Female handbag',
+        image_url: require('../../assets/images/featured_items/whitebag.jpg'),
+        price: 9000,
+        discount: 35,
+        timesBought: 632,
+        // store: "Zella's place",
+        description:
+          'Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility',
+      },
+      {
+        id: 3,
+        name: 'Universal slide',
+        image_url: require('../../assets/images/featured_items/slides.jpg'),
+        price: 12000,
+        discount: 20,
+        timesBought: 954,
+        // store: "Zella's place",
+        description:
+          'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Blanditiis beatae in laborum dolorum iure ducimus delectus doloremque amet veritatis deleniti, illo, numquam nulla sapiente facere, est tenetur exercitationem similique ad',
+      },
+      {
+        id: 4,
+        name: 'Colourful stylish handbag 2',
+        image_url: require('../../assets/images/featured_items/bags.jpg'),
+        price: 4000,
+        discount: 15,
+        timesBought: 50,
+        // store: "Zella's place",
+        description:
+          'Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility',
+      },
+      {
+        id: 5,
+        name: 'Female handbag 2',
+        image_url: require('../../assets/images/featured_items/whitebag.jpg'),
+        price: 9000,
+        discount: 35,
+        timesBought: 632,
+        // store: "Zella's place",
+        description:
+          'Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility',
       },
     ],
   },
@@ -137,6 +214,8 @@ export const stores = [
         discount: 45,
         timesBought: 136,
         // store: "Zella's place",
+        description:
+          'Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility',
       },
       {
         id: 1,
@@ -146,6 +225,8 @@ export const stores = [
         discount: 20,
         timesBought: 353,
         // store: "Zella's place",
+        description:
+          'Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility',
       },
       {
         id: 2,
@@ -155,6 +236,8 @@ export const stores = [
         discount: 30,
         timesBought: 49,
         // store: "Zella's place",
+        description:
+          'Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility',
       },
     ],
   },
@@ -176,6 +259,8 @@ export const stores = [
         discount: 24,
         timesBought: 270,
         // store: "Zella's place",
+        description:
+          'Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility',
       },
       {
         id: 1,
@@ -185,6 +270,8 @@ export const stores = [
         discount: 18,
         timesBought: 370,
         // store: "Zella's place",
+        description:
+          'Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility',
       },
       {
         id: 2,
@@ -194,6 +281,8 @@ export const stores = [
         discount: 10,
         timesBought: 93,
         // store: "Zella's place",
+        description:
+          'Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility Feature: Soft, comfortable, breathable,  absorbent, fashionable, high quality, high flexibility',
       },
     ],
   },

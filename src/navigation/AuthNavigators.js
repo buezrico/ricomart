@@ -2,7 +2,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
 import SignInScreen from '../screens/authScreens/SignInScreen';
 import SignInWelcomeScreen from '../screens/authScreens/SignInWelcomeScreen';
-import RestaurantHomeScreen from '../screens/RestaurantHomeScreen';
+import StoreHomeScreen from '../screens/StoreHomeScreen';
 import SearchResultScreen from '../screens/SearchResultScreen';
 import SearchScreen from '../screens/SearchScreen';
 import {ClientStack} from './ClientStack';

@@ -24,7 +24,7 @@ export default function SearchResultCard({
         <TouchableOpacity
           activeOpacity={0.8}
           onPress={() =>
-            navigation.navigate('RestaurantHomeScreen', {
+            navigation.navigate('StoreHomeScreen', {
               id: index,
               restaurant: name,
             })
