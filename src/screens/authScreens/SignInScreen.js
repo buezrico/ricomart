@@ -1,5 +1,6 @@
 import React, {useState, useRef} from 'react';
 import {
+  Alert,
   StyleSheet,
   Text,
   TextInput,
@@ -8,15 +9,29 @@ import {
 } from 'react-native';
 import {colors, parameters} from '../../global/styles';
 import Header from '../../components/Header';
-
 import * as Animatable from 'react-native-animatable';
 import {Button} from '@rneui/themed';
 import Icon from 'react-native-ico';
+import {Formik} from 'formik';
+import auth from '@react-native-firebase/auth';
 
 export default function SignInScreen({navigation}) {
   const [textInput2Focused, setTextInput2Focused] = useState(false);
   const textInput1 = useRef(1);
   const textInput2 = useRef(2);
+
+  async function SignIn(data) {
+    try {
+      const {password, email} = data;
+      const user = await auth().signInWithEmailAndPassword(email, password);
+      if (user) {
+        navigation.navigate('DrawerNavigator');
+      }
+    } catch (error) {
+      Alert.alert(error.name, error.message);
+    }
+  }
+
   return (
     <View style={styles.container}>
       <Header
@@ -36,106 +51,118 @@ export default function SignInScreen({navigation}) {
         <Text style={styles.text1}>registered with your account</Text>
       </View>
 
-      <View style={{marginTop: 20}}>
-        <View>
-          <TextInput
-            style={styles.TextInput1}
-            placeholder="Email"
-            placeholderTextColor={colors.grey3}
-            ref={textInput1}
-          />
-        </View>
+      <Formik
+        initialValues={{email: '', password: ''}}
+        onSubmit={values => {
+          SignIn(values);
+        }}>
+        {props => (
+          <View>
+            <View style={{marginTop: 20}}>
+              <View>
+                <TextInput
+                  style={styles.TextInput1}
+                  placeholder="Email"
+                  placeholderTextColor={colors.grey3}
+                  ref={textInput1}
+                  onChangeText={props.handleChange('email')}
+                  value={props.values.email}
+                />
+              </View>
 
-        <View style={styles.TextInput2}>
-          <TextInput
-            placeholder="Password"
-            placeholderTextColor={colors.grey3}
-            style={{
-              width: '80%',
-              color: colors.grey1,
-            }}
-            ref={textInput2}
-            onFocus={() => {
-              setTextInput2Focused(false);
-            }}
-            onBlur={() => {
-              setTextInput2Focused(true);
-            }}
-          />
-          <Animatable.View
-            animation={textInput2Focused ? '' : 'fadeInLeft'}
-            duration={2000}>
+              <View style={styles.TextInput2}>
+                <TextInput
+                  placeholder="Password"
+                  placeholderTextColor={colors.grey3}
+                  style={{
+                    width: '80%',
+                    color: colors.grey1,
+                  }}
+                  ref={textInput2}
+                  onFocus={() => {
+                    setTextInput2Focused(false);
+                  }}
+                  onBlur={() => {
+                    setTextInput2Focused(true);
+                  }}
+                  onChangeText={props.handleChange('password')}
+                  value={props.values.password}
+                />
+                <Animatable.View
+                  animation={textInput2Focused ? '' : 'fadeInLeft'}
+                  duration={2000}>
+                  <Icon
+                    name="eye-with-a-diagonal-line-interface-symbol-for-invisibility"
+                    group="font-awesome"
+                    color={colors.grey3}
+                    style={{marginRight: 10}}
+                  />
+                </Animatable.View>
+              </View>
+            </View>
+            <View style={{margin: 20}}>
+              <Button
+                title="SIGN IN"
+                buttonStyle={parameters.styledButton}
+                titleStyle={parameters.buttonTitle}
+                onPress={props.handleSubmit}
+              />
+            </View>
+          </View>
+        )}
+      </Formik>
+      <View style={{alignItems: 'center'}}>
+        <Text style={{...styles.text1, textDecorationLine: 'underline'}}>
+          Forgot Password?
+        </Text>
+      </View>
+
+      <View style={{alignItems: 'center', marginTop: 50, marginBottom: 20}}>
+        <Text style={{fontWeight: 'bold', fontSize: 20, color: colors.grey1}}>
+          OR
+        </Text>
+      </View>
+
+      <View style={{margin: 20}}>
+        <Button
+          buttonStyle={{
+            ...styles.socialButton,
+            backgroundColor: '#4267B2',
+            marginBottom: 20,
+          }}
+          titleStyle={{fontSize: 18}}
+          icon={
             <Icon
-              name="eye-with-a-diagonal-line-interface-symbol-for-invisibility"
-              group="font-awesome"
-              color={colors.grey3}
+              name="facebook-letter-logo"
+              color="white"
+              group="coolicons"
               style={{marginRight: 10}}
             />
-          </Animatable.View>
-        </View>
+          }
+          title="Sign In With Facebbok"
+        />
+        <Button
+          buttonStyle={{...styles.socialButton, backgroundColor: '#db4a39'}}
+          titleStyle={{fontSize: 18}}
+          icon={
+            <Icon
+              name="google-symbol"
+              group="material-design"
+              color="white"
+              style={{marginRight: 10}}
+            />
+          }
+          title="Sign In With Google"
+        />
+      </View>
 
-        <View style={{margin: 20}}>
-          <Button
-            title="SIGN IN"
-            buttonStyle={parameters.styledButton}
-            titleStyle={parameters.buttonTitle}
-            onPress={() => navigation.navigate('DrawerNavigator')}
-          />
-        </View>
-
-        <View style={{alignItems: 'center'}}>
-          <Text style={{...styles.text1, textDecorationLine: 'underline'}}>
-            Forgot Password?
+      <View style={{alignItems: 'center', marginTop: 20}}>
+        <Text style={styles.text1}>Don't have an account?</Text>
+        <TouchableOpacity activeOpacity={0.8}>
+          <Text style={{color: colors.buttons, fontSize: 20}}>
+            Create an account
           </Text>
-        </View>
-
-        <View style={{alignItems: 'center', marginTop: 50, marginBottom: 20}}>
-          <Text style={{fontWeight: 'bold', fontSize: 20, color: colors.grey1}}>
-            OR
-          </Text>
-        </View>
-
-        <View style={{margin: 20}}>
-          <Button
-            buttonStyle={{
-              ...styles.socialButton,
-              backgroundColor: '#4267B2',
-              marginBottom: 20,
-            }}
-            titleStyle={{fontSize: 18}}
-            icon={
-              <Icon
-                name="facebook-letter-logo"
-                color="white"
-                group="coolicons"
-                style={{marginRight: 10}}
-              />
-            }
-            title="Sign In With Facebbok"
-          />
-          <Button
-            buttonStyle={{...styles.socialButton, backgroundColor: '#db4a39'}}
-            titleStyle={{fontSize: 18}}
-            icon={
-              <Icon
-                name="google-symbol"
-                group="material-design"
-                color="white"
-                style={{marginRight: 10}}
-              />
-            }
-            title="Sign In With Google"
-          />
-        </View>
-
-        <View style={{alignItems: 'center', marginTop: 20}}>
-          <Text style={styles.text1}>Don't have an account?</Text>
-          <TouchableOpacity activeOpacity={0.8}>
-            <Text style={{color: colors.buttons, fontSize: 20}}>
-              Create an account
-            </Text>
-          </TouchableOpacity>
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   );

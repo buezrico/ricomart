@@ -1,12 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import {
-  FlatList,
-  Image,
-  ScrollView,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Image, ScrollView, Text, TouchableOpacity, View} from 'react-native';
 import {colors, parameters} from '../global/styles';
 
 export default function Stores({

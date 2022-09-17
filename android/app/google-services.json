@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "499327647643",
+    "project_id": "ricomart-c6bf8",
+    "storage_bucket": "ricomart-c6bf8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:499327647643:android:cd1b858fb5378547812b3e",
+        "android_client_info": {
+          "package_name": "com.ricomart"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "499327647643-0ps5lnf4qacbh9ddctuto86h3ogg11pi.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBf9gcjevwjFKDZx0Q1oTc0HVQZJ2VcpvI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "499327647643-0ps5lnf4qacbh9ddctuto86h3ogg11pi.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

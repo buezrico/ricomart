@@ -7,11 +7,11 @@
 #define TIMEOUT_SECONDS 600
 #define TEXT_TO_LOOK_FOR @"Welcome to React"
 
-@interface ricomartTests : XCTestCase
+@interface RicomartTests : XCTestCase
 
 @end
 
-@implementation ricomartTests
+@implementation RicomartTests
 
 - (BOOL)findSubviewInView:(UIView *)view matching:(BOOL (^)(UIView *view))test
 {

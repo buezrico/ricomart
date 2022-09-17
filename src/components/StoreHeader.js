@@ -48,13 +48,14 @@ export default function StoreHeader({navigation, id}) {
   return (
     <View style={{}}>
       <ImageBackground
-        style={{height: 170, width: '100%'}}
+        style={{height: 180, width: '100%'}}
         source={stores[id].image_url}>
         <View
           style={{
             flexDirection: 'row',
             justifyContent: 'space-between',
             padding: 10,
+            paddingRight: 0,
           }}>
           <TouchableOpacity
             onPress={() => navigation.goBack()}
@@ -74,29 +75,60 @@ export default function StoreHeader({navigation, id}) {
               color={colors.black}
             />
           </TouchableOpacity>
-          <TouchableOpacity
-            onPress={likeHandler}
-            activeOpacity={0.6}
+          <View
             style={{
+              flexDirection: 'row',
               alignItems: 'center',
-              justifyContent: 'center',
-              height: 40,
-              width: 40,
-              backgroundColor: colors.white,
-              ...parameters.shadow,
-
-              borderRadius: 50,
             }}>
-            {liked && index == counter ? (
+            <TouchableOpacity
+              onPress={likeHandler}
+              activeOpacity={0.6}
+              style={{
+                alignItems: 'center',
+                justifyContent: 'center',
+                height: 40,
+                width: 40,
+                backgroundColor: colors.white,
+                ...parameters.shadow,
+                marginRight: 20,
+                borderRadius: 50,
+              }}>
+              {liked && index == counter ? (
+                <Icon
+                  name="favorite-heart-button"
+                  group="material-design"
+                  color="red"
+                />
+              ) : (
+                <Icon
+                  name="heart-outline-shape"
+                  group="coolicons"
+                  color="red"
+                />
+              )}
+            </TouchableOpacity>
+            {/* <TouchableOpacity
+              style={{
+                // backgroundColor: c,
+
+                // borderRadius: 50,
+                // borderColor: colors.white,
+                // borderWidth: 2,
+                alignItems: 'center',
+                justifyContent: 'center',
+                height: 30,
+                width: 30,
+                marginRight: 20,
+              }}>
               <Icon
-                name="favorite-heart-button"
+                name="show-more-button-with-three-dots"
                 group="material-design"
-                color="red"
+                // height={15}
+                // width={15}
+                color={colors.white}
               />
-            ) : (
-              <Icon name="heart-outline-shape" group="coolicons" color="red" />
-            )}
-          </TouchableOpacity>
+            </TouchableOpacity> */}
+          </View>
         </View>
         <View
           style={{
@@ -122,6 +154,7 @@ export default function StoreHeader({navigation, id}) {
           padding: 10,
           flexDirection: 'row',
           justifyContent: 'space-between',
+          alignItems: 'center',
         }}>
         <View>
           <Text
@@ -134,29 +167,11 @@ export default function StoreHeader({navigation, id}) {
             {store.name}
           </Text>
           <Text style={{color: colors.black, marginTop: 5, fontSize: 16}}>
-            ⭐ {store.rating} • ₦₦ •{' '}
-            {store.category.map(cat => cat).join('  •  ')}
-          </Text>
-        </View>
-
-        <View
-          style={{
-            backgroundColor: colors.white,
-            paddingHorizontal: 10,
-            // paddingVertical: 5,
-            borderRadius: 10,
-            alignItems: 'center',
-            justifyContent: 'center',
-            ...parameters.shadow,
-          }}>
-          <Text
-            style={{
-              fontWeight: 'bold',
-              fontSize: 15,
-
-              color: colors.black,
-            }}>
-            {store.deliveryTime.map(day => day).join(' - ')} Days
+            ⭐
+            {`${store.rating}   •   ₦₦   •   ${store.deliveryTime
+              .map(day => day)
+              .join(' - ')} Days`}
+            {/* {store.category.map(cat => cat).join('  •  ')} */}
           </Text>
         </View>
       </View>

@@ -14,9 +14,6 @@
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-Ricomart-RicomartTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-Ricomart-RicomartTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		9A687095E72E4879A1ECAE10 /* Montserrat-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = CDEED184A9474B3C9F3A5DB9 /* Montserrat-Bold.ttf */; };
-		1935C458532D4A029B4399F3 /* Montserrat-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 478EEBADC8A8400DBD6520A3 /* Montserrat-Regular.ttf */; };
-		56F18F51787440559E1FF413 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A31A32B75CB548C99842AA38 /* Ionicons.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,9 +44,6 @@
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = Ricomart/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-Ricomart-RicomartTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Ricomart-RicomartTests.release.xcconfig"; path = "Target Support Files/Pods-Ricomart-RicomartTests/Pods-Ricomart-RicomartTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		CDEED184A9474B3C9F3A5DB9 /* Montserrat-Bold.ttf */ = {isa = PBXFileReference; name = "Montserrat-Bold.ttf"; path = "../assets/fonts/Montserrat-Bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		478EEBADC8A8400DBD6520A3 /* Montserrat-Regular.ttf */ = {isa = PBXFileReference; name = "Montserrat-Regular.ttf"; path = "../assets/fonts/Montserrat-Regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		A31A32B75CB548C99842AA38 /* Ionicons.ttf */ = {isa = PBXFileReference; name = "Ionicons.ttf"; path = "../node_modules/react-native-ionicons/fonts/Ionicons.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +122,6 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
-				0AA430B61C2549ED96E0AE2A /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -154,17 +147,6 @@
 			);
 			path = Pods;
 			sourceTree = "<group>";
-		};
-		0AA430B61C2549ED96E0AE2A /* Resources */ = {
-			isa = "PBXGroup";
-			children = (
-				CDEED184A9474B3C9F3A5DB9 /* Montserrat-Bold.ttf */,
-				478EEBADC8A8400DBD6520A3 /* Montserrat-Regular.ttf */,
-				A31A32B75CB548C99842AA38 /* Ionicons.ttf */,
-			);
-			name = Resources;
-			sourceTree = "<group>";
-			path = "";
 		};
 /* End PBXGroup section */
 
@@ -262,9 +244,6 @@
 			files = (
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
-				9A687095E72E4879A1ECAE10 /* Montserrat-Bold.ttf in Resources */,
-				1935C458532D4A029B4399F3 /* Montserrat-Regular.ttf in Resources */,
-				56F18F51787440559E1FF413 /* Ionicons.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

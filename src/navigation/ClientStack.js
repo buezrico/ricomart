@@ -1,9 +1,10 @@
 import {getFocusedRouteNameFromRoute} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React, {useLayoutEffect} from 'react';
-import StoreHomeScreen from '../screens/StoreHomeScreen';
+import ShopHomeScreen from '../screens/ShopHomeScreen';
 import SearchResultScreen from '../screens/SearchResultScreen';
 import SearchScreen from '../screens/SearchScreen';
+import ProductHomeScreen from '../screens/ProductHomeScreen';
 
 const ClientStacks = createNativeStackNavigator();
 
@@ -27,7 +28,11 @@ export function ClientStack({navigation, route}) {
         name="SearchResultScreen"
         component={SearchResultScreen}
       />
-      <ClientStacks.Screen name="StoreHomeScreen" component={StoreHomeScreen} />
+      <ClientStacks.Screen name="ShopHomeScreen" component={ShopHomeScreen} />
+      <ClientStacks.Screen
+        name="ProductHomeScreen"
+        component={ProductHomeScreen}
+      />
     </ClientStacks.Navigator>
   );
 }

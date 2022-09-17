@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-               BuildableName = "ricomart.app"
-               BlueprintName = "ricomart"
-               ReferencedContainer = "container:ricomart.xcodeproj">
+               BuildableName = "Ricomart.app"
+               BlueprintName = "Ricomart"
+               ReferencedContainer = "container:Ricomart.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "00E356ED1AD99517003FC87E"
-               BuildableName = "ricomartTests.xctest"
-               BlueprintName = "ricomartTests"
-               ReferencedContainer = "container:ricomart.xcodeproj">
+               BuildableName = "RicomartTests.xctest"
+               BlueprintName = "RicomartTests"
+               ReferencedContainer = "container:Ricomart.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -55,9 +55,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "ricomart.app"
-            BlueprintName = "ricomart"
-            ReferencedContainer = "container:ricomart.xcodeproj">
+            BuildableName = "Ricomart.app"
+            BlueprintName = "Ricomart"
+            ReferencedContainer = "container:Ricomart.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </LaunchAction>
@@ -72,9 +72,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "13B07F861A680F5B00A75B9A"
-            BuildableName = "ricomart.app"
-            BlueprintName = "ricomart"
-            ReferencedContainer = "container:ricomart.xcodeproj">
+            BuildableName = "Ricomart.app"
+            BlueprintName = "Ricomart"
+            ReferencedContainer = "container:Ricomart.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

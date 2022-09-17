@@ -1,4 +1,4 @@
-package com.ivysmag;
+package com.ricomart;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;

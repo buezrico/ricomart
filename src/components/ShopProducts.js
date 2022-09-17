@@ -1,86 +1,24 @@
 import React from 'react';
 import {Image, SectionList, Text, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-ico';
-import {stores} from '../../global/data';
-import {colors, parameters} from '../../global/styles';
+import {stores} from '../global/data';
+import {colors, parameters} from '../global/styles';
 
-export default function ProductScreen({id}) {
+export default function ShopProducts({id, navigation}) {
   return (
-    // <View>
-    //   <SectionList
-    //     sections={stores[id].products}
-    //     // numColumns={3}
-    //     scrollEnabled={true}
-    //     keyExtractor={(item, index) => item + index}
-    //     style={{
-    //       width: '100%',
-    //       padding: 10,
-    //     }}
-    //     renderSectionHeader={({section}) => (
-    //       <Text
-    //         numberOfLines={1}
-    //         style={{
-    //           color: colors.black,
-    //           fontSize: 25,
-    //           marginVertical: 10,
-    //           fontWeight: 'bold',
-    //         }}>
-    //         {section.title}
-    //       </Text>
-    //     )}
-    //     renderItem={({item, index}) => (
-    //       <TouchableOpacity
-    //         activeOpacity={0.8}
-    //         style={
-    //           {
-    //             // marginRight: 20,
-    //             // flex: 1,
-    //           }
-    //         }>
-    //         <View>
-    //           <Image source={item.image_url} style={{width: 90, height: 80}} />
-    //           <View
-    //             style={{
-    //               position: 'absolute',
-    //               right: '0%',
-    //               top: '0%',
-    //               backgroundColor: colors.white,
-    //               paddingHorizontal: 3,
-    //             }}>
-    //             <Text
-    //               style={{
-    //                 color: colors.buttons,
-    //                 fontSize: 12,
-    //               }}>
-    //               {item.discount}% off
-    //             </Text>
-    //           </View>
-    //         </View>
-
-    //         <View style={{paddingHorizontal: 2}}>
-    //           <Text
-    //             numberOfLines={1}
-    //             style={{
-    //               color: colors.grey2,
-    //               fontSize: 15,
-    //               maxWidth: 100,
-    //               fontWeight: 'bold',
-    //             }}>
-    //             {item.name}
-    //           </Text>
-
-    //           <Text style={{color: colors.buttons, fontSize: 16}}>
-    //             ₦{item.price}
-    //           </Text>
-    //         </View>
-    //       </TouchableOpacity>
-    //     )}
-    //   />
-    // </View>
+    //
     <View style={{paddingVertical: 15, paddingHorizontal: 10}}>
       {stores[id].products.map((product, index) => {
         return (
-          <TouchableOpacity key={index} activeOpacity={0.8}>
+          <TouchableOpacity
+            key={index}
+            activeOpacity={0.8}
+            onPress={() =>
+              navigation.navigate('ProductHomeScreen', {
+                name: product.name,
+                id: product.id,
+              })
+            }>
             <View
               style={{
                 backgroundColor: colors.white,

@@ -1,10 +1,9 @@
-import {View, Text, FlatList, TouchableOpacity} from 'react-native';
 import React from 'react';
-import {colors, parameters} from '../global/styles';
+import {FlatList, Text, TouchableOpacity, View} from 'react-native';
+import Icon from 'react-native-ico';
 import SearchResultCard from '../components/SearchResultCard';
 import {stores} from '../global/data';
-import Icon from 'react-native-ico';
-import {fonts} from '@rneui/base';
+import {colors} from '../global/styles';
 
 export default function SearchResult({navigation, route}) {
   return (
