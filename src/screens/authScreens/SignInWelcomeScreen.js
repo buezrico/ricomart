@@ -11,7 +11,7 @@ const slides = [
     image_url: require('../../../assets/images/sign_in/shop_online.png'),
   },
   {
-    text1: 'Amzing shopping',
+    text1: 'Amazing shopping',
     text2: 'experience',
     image_url: require('../../../assets/images/sign_in/purchase_successful.png'),
   },
@@ -67,6 +67,7 @@ export default function SignInWelcomeScreen({navigation}) {
           onPress={() => navigation.navigate('SignInScreen')}
         />
         <Button
+          onPress={() => navigation.navigate('SignUpScreen')}
           title="Create an account"
           buttonStyle={{
             ...parameters.styledButton,

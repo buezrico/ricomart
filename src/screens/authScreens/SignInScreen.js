@@ -17,8 +17,6 @@ import auth from '@react-native-firebase/auth';
 
 export default function SignInScreen({navigation}) {
   const [textInput2Focused, setTextInput2Focused] = useState(false);
-  const textInput1 = useRef(1);
-  const textInput2 = useRef(2);
 
   async function SignIn(data) {
     try {
@@ -59,18 +57,42 @@ export default function SignInScreen({navigation}) {
         {props => (
           <View>
             <View style={{marginTop: 20}}>
-              <View>
+              {/* <View>
                 <TextInput
                   style={styles.TextInput1}
                   placeholder="Email"
                   placeholderTextColor={colors.grey3}
-                  ref={textInput1}
+                  onChangeText={props.handleChange('email')}
+                  value={props.values.email}
+                />
+              </View> */}
+
+              <View style={styles.TextInput2}>
+                <Icon
+                  name="new-email-black-back-envelope-symbol-of-interface"
+                  group="coolicons"
+                  color={colors.grey3}
+                  style={{marginRight: 10}}
+                />
+                <TextInput
+                  placeholder="Email"
+                  placeholderTextColor={colors.grey3}
+                  style={{
+                    // width: '80%',
+                    color: colors.grey1,
+                  }}
                   onChangeText={props.handleChange('email')}
                   value={props.values.email}
                 />
               </View>
 
               <View style={styles.TextInput2}>
+                <Icon
+                  name="lock-rectangular-padlock-shape"
+                  group="universalicons"
+                  color={colors.grey3}
+                  style={{marginRight: 10}}
+                />
                 <TextInput
                   placeholder="Password"
                   placeholderTextColor={colors.grey3}
@@ -78,7 +100,6 @@ export default function SignInScreen({navigation}) {
                     width: '80%',
                     color: colors.grey1,
                   }}
-                  ref={textInput2}
                   onFocus={() => {
                     setTextInput2Focused(false);
                   }}
@@ -100,7 +121,7 @@ export default function SignInScreen({navigation}) {
                 </Animatable.View>
               </View>
             </View>
-            <View style={{margin: 20}}>
+            <View style={{margin: 20, marginTop: 0}}>
               <Button
                 title="SIGN IN"
                 buttonStyle={parameters.styledButton}
@@ -158,7 +179,9 @@ export default function SignInScreen({navigation}) {
 
       <View style={{alignItems: 'center', marginTop: 20}}>
         <Text style={styles.text1}>Don't have an account?</Text>
-        <TouchableOpacity activeOpacity={0.8}>
+        <TouchableOpacity
+          activeOpacity={0.8}
+          onPress={() => navigation.navigate('SignUpScreen')}>
           <Text style={{color: colors.buttons, fontSize: 20}}>
             Create an account
           </Text>
@@ -193,10 +216,10 @@ const styles = StyleSheet.create({
     marginHorizontal: 20,
     borderRadius: 15,
     flexDirection: 'row',
-    justifyContent: 'space-between',
     alignContent: 'center',
     alignItems: 'center',
     paddingLeft: 15,
+    marginBottom: 20,
   },
 
   socialButton: {

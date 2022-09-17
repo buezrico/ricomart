@@ -1,6 +1,7 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import React from 'react';
 import SignInScreen from '../screens/authScreens/SignInScreen';
+import SignUpScreen from '../screens/authScreens/SignUpScreen';
 import SignInWelcomeScreen from '../screens/authScreens/SignInWelcomeScreen';
 import ShopHomeScreen from '../screens/ShopHomeScreen';
 import SearchResultScreen from '../screens/SearchResultScreen';
@@ -21,6 +22,11 @@ export default function AuthStack() {
       <Auth.Screen
         name="SignInScreen"
         component={SignInScreen}
+        options={{animation: 'slide_from_bottom'}}
+      />
+      <Auth.Screen
+        name="SignUpScreen"
+        component={SignUpScreen}
         options={{animation: 'slide_from_bottom'}}
       />
       <Auth.Screen
