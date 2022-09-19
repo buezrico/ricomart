@@ -58,7 +58,12 @@ export default function Stores({
               }}>
               <TouchableOpacity
                 activeOpacity={0.8}
-                onPress={() => navigation.navigate('RestaurantHomeScreen')}>
+                onPress={() =>
+                  navigation.navigate('ClientStack', {
+                    screen: 'ShopHomeScreen',
+                    params: {id: store.id, restaurant: store},
+                  })
+                }>
                 <Image
                   source={store.image_url}
                   style={{width: '100%', height: 160}}

@@ -29,11 +29,6 @@ export default function AuthStack() {
         component={SignUpScreen}
         options={{animation: 'slide_from_bottom'}}
       />
-      <Auth.Screen
-        name="DrawerNavigator"
-        component={DrawerNavigator}
-        // options={{animation: 'slide_from_bottom'}}
-      />
     </Auth.Navigator>
   );
 }

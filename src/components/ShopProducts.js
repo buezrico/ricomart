@@ -15,7 +15,7 @@ export default function ShopProducts({id, navigation}) {
             activeOpacity={0.8}
             onPress={() =>
               navigation.navigate('ProductHomeScreen', {
-                name: product.name,
+                product: product,
                 id: product.id,
               })
             }>

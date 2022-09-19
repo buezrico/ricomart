@@ -5,6 +5,7 @@ import {
   StyleSheet,
   TextInput,
   TouchableOpacity,
+  Alert,
 } from 'react-native';
 import React, {useState} from 'react';
 import {colors, parameters} from '../../global/styles';
@@ -13,7 +14,7 @@ import {Formik} from 'formik';
 import * as Animatable from 'react-native-animatable';
 import {Button} from '@rneui/themed';
 import Icon from 'react-native-ico';
-import {useRef} from 'react';
+import auth from '@react-native-firebase/auth';
 
 const SignUpScreen = ({navigation}) => {
   const [textInput2Focused, setTextInput2Focused] = useState(false);
@@ -27,7 +28,22 @@ const SignUpScreen = ({navigation}) => {
     password: '',
   };
 
-  async function SignUp(data) {}
+  async function signUp(values) {
+    const {email, password} = values;
+
+    try {
+      await auth().createUserWithEmailAndPassword(email, password);
+      console.log('User Account Created');
+    } catch (error) {
+      if (error.code === 'auth/email-already-in-use') {
+        Alert.alert('Email already exist');
+      } else if (error.code === 'auth/invalid-email') {
+        Alert.alert('Invalid Email');
+      } else {
+        Alert.alert(error.code);
+      }
+    }
+  }
 
   return (
     <View>
@@ -51,7 +67,7 @@ const SignUpScreen = ({navigation}) => {
         <Formik
           initialValues={initialValues}
           onSubmit={values => {
-            SignUp(values);
+            signUp(values);
           }}>
           {props => (
             <View>

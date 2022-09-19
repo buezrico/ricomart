@@ -1,8 +1,11 @@
 import {Button} from '@rneui/base';
-import React from 'react';
+import React, {useContext} from 'react';
+import {useEffect} from 'react';
 import {View, Text, Image, StyleSheet} from 'react-native';
 import Swiper from 'react-native-swiper';
 import {colors, parameters} from '../../global/styles';
+import {SignInContext} from '../../contexts/authContext';
+import auth from '@react-native-firebase/auth';
 
 const slides = [
   {
@@ -23,6 +26,24 @@ const slides = [
 ];
 
 export default function SignInWelcomeScreen({navigation}) {
+  const {dispatchSignedIn} = useContext(SignInContext);
+
+  useEffect(() => {
+    auth().onAuthStateChanged(user => {
+      if (user) {
+        dispatchSignedIn({
+          type: 'UPDATE_SIGN_IN',
+          payload: {userToken: 'signed-in'},
+        });
+      } else {
+        dispatchSignedIn({
+          type: 'UPDATE_SIGN_IN',
+          payload: {userToken: null},
+        });
+      }
+    });
+  }, []);
+
   return (
     <View style={{flex: 1, height: '100%', backgroundColor: 'white'}}>
       <View style={{flex: 9}}>

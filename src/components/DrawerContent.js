@@ -7,7 +7,7 @@ import {
   Switch,
   TouchableOpacity,
 } from 'react-native';
-import React from 'react';
+import React, {useContext} from 'react';
 import {
   DrawerContentScrollView,
   DrawerItemList,
@@ -16,8 +16,28 @@ import {
 import {Avatar, Button} from '@rneui/themed';
 import Icon from 'react-native-ico';
 import {colors} from '../global/styles';
+import auth from '@react-native-firebase/auth';
+import {SignInContext} from '../contexts/authContext';
 
 export default function DrawerContent(props) {
+  const {dispatchSignedIn} = useContext(SignInContext);
+
+  async function signOut() {
+    try {
+      auth()
+        .signOut()
+        .then(() => {
+          console.log('USER SIGNED OUT');
+          dispatchSignedIn({
+            type: 'UPDATE_SIGN_IN',
+            payload: {userToken: null},
+          });
+        });
+    } catch (error) {
+      Alert.alert(error.code);
+    }
+  }
+
   return (
     <View style={{flex: 1}}>
       <DrawerContentScrollView {...props}>
@@ -167,6 +187,7 @@ export default function DrawerContent(props) {
         </View>
       </DrawerContentScrollView>
       <DrawerItem
+        onPress={() => signOut()}
         label="Sign Out"
         labelStyle={{fontSize: 15, fontWeight: 'bold'}}
         icon={({color, size}) => (

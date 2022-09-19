@@ -1,4 +1,4 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useContext} from 'react';
 import {
   Alert,
   StyleSheet,
@@ -14,16 +14,22 @@ import {Button} from '@rneui/themed';
 import Icon from 'react-native-ico';
 import {Formik} from 'formik';
 import auth from '@react-native-firebase/auth';
+import {SignInContext} from '../../contexts/authContext';
 
 export default function SignInScreen({navigation}) {
+  const {dispatchSignedIn} = useContext(SignInContext);
   const [textInput2Focused, setTextInput2Focused] = useState(false);
 
-  async function SignIn(data) {
+  async function signIn(data) {
     try {
       const {password, email} = data;
       const user = await auth().signInWithEmailAndPassword(email, password);
+      console.log('User Logged In');
       if (user) {
-        navigation.navigate('DrawerNavigator');
+        dispatchSignedIn({
+          type: 'UPDATE_SIGN_IN',
+          payload: {userToken: 'signed-in'},
+        });
       }
     } catch (error) {
       Alert.alert(error.name, error.message);
@@ -52,7 +58,7 @@ export default function SignInScreen({navigation}) {
       <Formik
         initialValues={{email: '', password: ''}}
         onSubmit={values => {
-          SignIn(values);
+          signIn(values);
         }}>
         {props => (
           <View>
@@ -78,7 +84,7 @@ export default function SignInScreen({navigation}) {
                   placeholder="Email"
                   placeholderTextColor={colors.grey3}
                   style={{
-                    // width: '80%',
+                    width: '80%',
                     color: colors.grey1,
                   }}
                   onChangeText={props.handleChange('email')}
