@@ -4,7 +4,7 @@ import Icon from 'react-native-ico';
 import {colors} from '../global/styles';
 import {stores} from '../global/data';
 
-export default function FeaturedItems() {
+export default function FeaturedItems({navigation}) {
   return (
     <ScrollView horizontal showsHorizontalScrollIndicator={false}>
       {stores.map((item, index) => {
@@ -14,7 +14,16 @@ export default function FeaturedItems() {
             key={index}
             style={{
               marginRight: 15,
-            }}>
+            }}
+            onPress={() =>
+              navigation.navigate('ClientStack', {
+                screen: 'ProductHomeScreen',
+                params: {
+                  product: item.products[0],
+                  store: item,
+                },
+              })
+            }>
             <View>
               <Image
                 source={item.products[0].image_url}

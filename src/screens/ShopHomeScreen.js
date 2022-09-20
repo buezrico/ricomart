@@ -8,7 +8,7 @@ import {
 } from 'react-native';
 import {TabBar, TabView} from 'react-native-tab-view';
 import StoreHeader from '../components/StoreHeader';
-import {colors} from '../global/styles';
+import {colors, parameters} from '../global/styles';
 import ShopProducts from '../components/ShopProducts';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
@@ -81,7 +81,7 @@ export default function ShopHomeScreen({navigation, route}) {
     <View style={{flex: 1}}>
       <ScrollView
         stickyHeaderIndices={[1]}
-        style={{marginBottom: 30}}
+        style={{marginBottom: 50}}
         showsVerticalScrollIndicator={false}>
         <View>
           <StoreHeader
@@ -113,22 +113,37 @@ export default function ShopHomeScreen({navigation, route}) {
           position: 'absolute',
           bottom: 0,
           left: 0,
-          backgroundColor: colors.buttons,
-          height: 50,
           width: '100%',
-          justifyContent: 'center',
-          paddingHorizontal: 40,
-          flexDirection: 'row',
           alignItems: 'center',
-          justifyContent: 'space-between',
+          paddingHorizontal: 10,
+          paddingBottom: 10,
+          backgroundColor: colors.white,
+          ...parameters.shadow,
         }}>
-        <Text style={{fontSize: 20, color: colors.white, fontWeight: 'bold'}}>
-          View Cart
-        </Text>
-        <View>
-          <Text style={{fontSize: 25, color: colors.white, fontWeight: 'bold'}}>
-            0
+        <View
+          style={{
+            width: '90%',
+            height: 50,
+            justifyContent: 'center',
+            paddingHorizontal: 40,
+            flexDirection: 'row',
+            alignItems: 'center',
+            backgroundColor: colors.buttons,
+            justifyContent: 'space-between',
+            marginTop: -20,
+            marginBottom: 5,
+            borderRadius: 10,
+            ...parameters.shadow,
+          }}>
+          <Text style={{fontSize: 20, color: colors.white, fontWeight: 'bold'}}>
+            View Cart
           </Text>
+          <View>
+            <Text
+              style={{fontSize: 25, color: colors.white, fontWeight: 'bold'}}>
+              0
+            </Text>
+          </View>
         </View>
       </TouchableOpacity>
     </View>

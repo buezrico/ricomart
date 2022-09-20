@@ -16,7 +16,7 @@ export default function ShopProducts({id, navigation}) {
             onPress={() =>
               navigation.navigate('ProductHomeScreen', {
                 product: product,
-                id: product.id,
+                store: stores[id],
               })
             }>
             <View

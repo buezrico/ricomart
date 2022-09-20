@@ -31,7 +31,7 @@ export default function HomeScreen({navigation}) {
             paddingVertical: 15,
             paddingHorizontal: 10,
           }}>
-          <FeaturedItems />
+          <FeaturedItems navigation={navigation} stores={stores} />
         </View>
 
         <View

@@ -117,6 +117,15 @@ export default function Stores({
                   return (
                     <TouchableOpacity
                       activeOpacity={0.8}
+                      onPress={() =>
+                        navigation.navigate('ClientStack', {
+                          screen: 'ProductHomeScreen',
+                          params: {
+                            product: product,
+                            store: store,
+                          },
+                        })
+                      }
                       key={index}
                       style={{
                         marginRight: 20,
