@@ -69,14 +69,9 @@ export default function ProductHomeScreen({route, navigation}) {
                 height: 40,
                 width: 40,
                 backgroundColor: colors.white,
-                ...parameters.shadow,
                 borderRadius: 50,
               }}>
-              <Icon
-                name="left-arrow-key-1"
-                group="material-design"
-                color={colors.black}
-              />
+              <Icon name="left-arrow-key-1" group="material-design" />
             </TouchableOpacity>
             <View
               style={{
@@ -92,53 +87,22 @@ export default function ProductHomeScreen({route, navigation}) {
                   height: 40,
                   width: 40,
                   backgroundColor: colors.white,
-                  ...parameters.shadow,
                   marginRight: 20,
                   borderRadius: 50,
                 }}>
                 {liked && index == counter ? (
-                  <Icon
-                    name="favorite-heart-button"
-                    group="material-design"
-                    color="red"
-                  />
+                  <Icon name="bookmark-white" group="font-awesome" />
                 ) : (
-                  <Icon
-                    name="heart-outline-shape"
-                    group="coolicons"
-                    color="red"
-                  />
+                  <Icon name="bookmark-black-shape" group="font-awesome" />
                 )}
               </TouchableOpacity>
-              {/* <TouchableOpacity
-              style={{
-                // backgroundColor: c,
-
-                // borderRadius: 50,
-                // borderColor: colors.white,
-                // borderWidth: 2,
-                alignItems: 'center',
-                justifyContent: 'center',
-                height: 30,
-                width: 30,
-                marginRight: 20,
-              }}>
-              <Icon
-                name="show-more-button-with-three-dots"
-                group="material-design"
-                // height={15}
-                // width={15}
-                color={colors.white}
-              />
-            </TouchableOpacity> */}
             </View>
           </View>
         </ImageBackground>
         <View
           style={{
-            paddingHorizontal: 12,
-            // flexDirection: 'row',
-            // justifyContent: 'space-between',
+            // width: '100%',
+            paddingHorizontal: 10,
             alignItems: 'center',
           }}>
           <View style={{marginTop: -80}}>
@@ -154,7 +118,9 @@ export default function ProductHomeScreen({route, navigation}) {
                 color={colors.white}
               />
               <Text
+                numberOfLines={1}
                 style={{
+                  width: 300,
                   fontSize: 18,
                   marginLeft: 10,
                   color: colors.white,
@@ -167,12 +133,12 @@ export default function ProductHomeScreen({route, navigation}) {
               style={{
                 backgroundColor: colors.white,
                 ...parameters.shadow,
-                width: '100%',
                 padding: 10,
+                margin: 8,
                 borderRadius: 5,
                 marginTop: 10,
               }}>
-              <View style={{marginBottom: 10}}>
+              <View style={{marginBottom: 15}}>
                 <Text
                   numberOfLines={1}
                   style={{
@@ -180,14 +146,19 @@ export default function ProductHomeScreen({route, navigation}) {
                     fontSize: 20,
                     fontWeight: 'bold',
                   }}>
-                  {store.name}
+                  {product.name}
                 </Text>
-                <Text style={{color: colors.black, marginTop: 5, fontSize: 16}}>
-                  ⭐
-                  {`${store.rating}   •   ₦₦   •   ${store.deliveryTime
+                <Text
+                  style={{
+                    color: colors.buttons,
+                    marginTop: 10,
+                    fontSize: 20,
+                    fontWeight: 'bold',
+                  }}>
+                  {/* {`${store.rating}   •   ₦₦   •   ${store.deliveryTime
                     .map(day => day)
-                    .join(' - ')} Days`}
-                  {/* {store.category.map(cat => cat).join('  •  ')} */}
+                    .join(' - ')} Days`} */}
+                  {`₦ ${product.price}`}
                 </Text>
               </View>
               <View
@@ -197,15 +168,23 @@ export default function ProductHomeScreen({route, navigation}) {
                   width: '100%',
                 }}>
                 <Button
-                  onPress={() => navigation.navigate('SignUpScreen')}
-                  title="Price am"
+                  onPress={() => {}}
+                  title="CALL"
                   buttonStyle={{
                     ...parameters.styledButton,
                     backgroundColor: 'transparent',
-                    width: 180,
+                    width: 170,
                     borderRadius: 5,
                     borderWidth: 1.5,
                   }}
+                  icon={
+                    <Icon
+                      name="phone-call-1"
+                      group="ui-interface"
+                      color={colors.buttons}
+                      style={{marginRight: 10}}
+                    />
+                  }
                   titleStyle={{
                     ...parameters.buttonTitle,
                     color: colors.buttons,
@@ -214,16 +193,60 @@ export default function ProductHomeScreen({route, navigation}) {
                 <Button
                   title="Chat Seller"
                   buttonStyle={{
-                    // ...parameters.shadow,
                     ...parameters.styledButton,
-                    // paddingHorizontal: 0,
-                    width: 180,
+                    width: 170,
                     borderRadius: 5,
                   }}
                   titleStyle={parameters.buttonTitle}
-                  onPress={() => navigation.navigate('SignInScreen')}
+                  onPress={() => {}}
+                  icon={
+                    <Icon
+                      name="chat"
+                      group="miscellaneous"
+                      color={colors.white}
+                      style={{marginRight: 10}}
+                    />
+                  }
                 />
               </View>
+            </View>
+
+            <View
+              style={{
+                backgroundColor: colors.white,
+                ...parameters.shadow,
+                padding: 10,
+                margin: 8,
+                borderRadius: 5,
+                marginTop: 10,
+              }}>
+              <Text style={{color: colors.black, textAlign: 'justify'}}>
+                {product.description}
+              </Text>
+            </View>
+
+            <View style={{marginTop: 10, margin: 8}}>
+              <Button
+                onPress={() => {}}
+                title="Negotiate Price with Seller"
+                buttonStyle={{
+                  ...parameters.styledButton,
+                  backgroundColor: 'transparent',
+                  borderRadius: 5,
+                  borderWidth: 1.5,
+                }}
+                icon={
+                  <Icon
+                    name="question-mark-in-circular-shape"
+                    color={colors.buttons}
+                    style={{marginRight: 10}}
+                  />
+                }
+                titleStyle={{
+                  ...parameters.buttonTitle,
+                  color: colors.buttons,
+                }}
+              />
             </View>
           </View>
         </View>
@@ -235,21 +258,40 @@ export default function ProductHomeScreen({route, navigation}) {
           position: 'absolute',
           bottom: 0,
           left: 0,
-          backgroundColor: colors.buttons,
-          height: 50,
           width: '100%',
-          justifyContent: 'center',
-          paddingHorizontal: 40,
-          flexDirection: 'row',
           alignItems: 'center',
-          justifyContent: 'space-between',
+          paddingHorizontal: 10,
+          paddingBottom: 10,
+          backgroundColor: colors.white,
+          ...parameters.shadow,
         }}>
-        <Text style={{fontSize: 20, color: colors.white, fontWeight: 'bold'}}>
-          View Cart
-        </Text>
-        <View>
-          <Text style={{fontSize: 25, color: colors.white, fontWeight: 'bold'}}>
-            0
+        <View
+          style={{
+            width: '90%',
+            height: 50,
+            justifyContent: 'center',
+            paddingHorizontal: 40,
+            flexDirection: 'row',
+            alignItems: 'center',
+            backgroundColor: colors.buttons,
+            justifyContent: 'space-around',
+            marginTop: -20,
+            marginBottom: 5,
+            borderRadius: 10,
+            ...parameters.shadow,
+          }}>
+          <Icon
+            name="shopping-cart"
+            group="ui-interface"
+            color={colors.white}
+          />
+          <Text
+            style={{
+              fontSize: 20,
+              color: colors.white,
+              fontWeight: 'bold',
+            }}>
+            Add Item to Cart
           </Text>
         </View>
       </TouchableOpacity>

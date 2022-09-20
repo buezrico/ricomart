@@ -16,7 +16,7 @@ export default function FeaturedItems({navigation}) {
               marginRight: 15,
             }}
             onPress={() =>
-              navigation.navigate('ClientStack', {
+              navigation.navigate('Home', {
                 screen: 'ProductHomeScreen',
                 params: {
                   product: item.products[0],

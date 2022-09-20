@@ -59,7 +59,7 @@ export default function Stores({
               <TouchableOpacity
                 activeOpacity={0.8}
                 onPress={() =>
-                  navigation.navigate('ClientStack', {
+                  navigation.navigate('Home', {
                     screen: 'ShopHomeScreen',
                     params: {id: store.id, restaurant: store},
                   })
@@ -118,7 +118,7 @@ export default function Stores({
                     <TouchableOpacity
                       activeOpacity={0.8}
                       onPress={() =>
-                        navigation.navigate('ClientStack', {
+                        navigation.navigate('Home', {
                           screen: 'ProductHomeScreen',
                           params: {
                             product: product,

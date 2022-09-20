@@ -15,9 +15,8 @@ const screenOptions = {
 export function ClientStack({navigation, route}) {
   useLayoutEffect(() => {
     const routeName = getFocusedRouteNameFromRoute(route);
-    if (routeName === 'RestaurantHomeScreen') {
-      navigation.setOptions({tabBarStyle: {display: 'none'}});
-    } else {
+    console.log(routeName);
+    if (routeName === 'SearchScreen' || 'SearchResultScreen') {
       navigation.setOptions({tabBarStyle: {display: 'none'}});
     }
   }, [navigation, route]);

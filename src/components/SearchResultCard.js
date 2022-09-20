@@ -24,9 +24,9 @@ export default function SearchResultCard({
         <TouchableOpacity
           activeOpacity={0.8}
           onPress={() =>
-            navigation.navigate('ShopHomeScreen', {
-              id: index,
-              restaurant: name,
+            navigation.navigate('Home', {
+              screen: 'ShopHomeScreen',
+              params: {id: index, restaurant: name},
             })
           }>
           <Image source={image} style={{width: '100%', height: 160}} />
@@ -76,6 +76,15 @@ export default function SearchResultCard({
               return (
                 <TouchableOpacity
                   activeOpacity={0.8}
+                  onPress={() =>
+                    navigation.navigate('Home', {
+                      screen: 'ProductHomeScreen',
+                      params: {
+                        product: product,
+                        store: products,
+                      },
+                    })
+                  }
                   key={index}
                   style={{
                     marginRight: 20,
